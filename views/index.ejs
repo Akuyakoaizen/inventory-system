@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory List</title>
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+  <h1>Inventory</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% items.forEach(item => { %>
+        <tr>
+          <td><%= item._id %></td>
+          <td><%= item.name %></td>
+          <td><%= item.category %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.price %></td>
+          <td>
+            <form action="/inventory/edit/<%= item._id %>" method="GET">
+              <button type="submit" class="btn edit-btn">Edit</button>
+            </form>
+            <form action="/inventory/delete/<%= item._id %>" method="DELETE">
+              <button type="submit" class="btn delete-btn">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+    </table>
+    <div class="center-button">
+        <a href="/inventory/add">
+          <button class="btn add-btn">Add Item</button>
+        </a>
+      </div>
+
+</body>
+</html>

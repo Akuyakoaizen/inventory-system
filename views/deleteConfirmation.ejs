@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/delete.css">
+  <title>Delete Confirmation</title>
+</head>
+<body>
+  <h1>Are you sure you want to delete this item?</h1>
+  <p>Name: <%= item.name %></p>
+
+
+  <form action="/inventory/delete/<%= item._id %>?_method=DELETE" method="POST" class="delete-form">
+    <button type="submit">Yes, Delete</button>
+  </form>
+
+  <a style="margin-left: 50px;" href="/inventory">Cancel</a>
+</body>
+</html>
